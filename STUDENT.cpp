@@ -16,8 +16,8 @@ public:
     // Function to input student details
     void inputDetails() {
         cout << "Enter Name: ";
-        cin.ignore(); // To clear the buffer
-        cin>>name;
+        cin>>ws; // To consume any leading whitespace before reading the name
+        
         getline(cin, name);
         cout << "Enter Roll Number: ";
         cin >> roll_no;
@@ -57,6 +57,10 @@ int main() {
     int n;
     cout << "Enter the number of students: ";
     cin >> n;
+    if (n <= 0) {
+        cout << "No students to process." << endl;
+        return 0;
+    }
 
     vector<Student> students(n);
     float totalMarks = 0;
